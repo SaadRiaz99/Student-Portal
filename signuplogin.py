@@ -13,11 +13,22 @@ def signup():
     name = input("Enter Full Name: ")
     roll_no = input("Enter Roll Number: ")
 
-    print("\nEnter Marks (out of 100):")
-    eng = int(input("English: "))
-    math = int(input("Math: "))
-    isl = int(input("Islamiat: "))
-    urdu = int(input("Urdu: "))
+    print("\nEnter Marks :")
+    print("\nEnter Marks:")
+
+    while True:
+        eng = int(input("English Number out of 100: "))
+        math = int(input("Math Number out of 100: "))
+        isl = int(input("Islamiat Number out of 75: "))
+        urdu = int(input("Urdu Number out of 100: "))
+
+        if eng > 100 and math > 100 and isl > 75 and urdu > 100:
+            print("Invalid Number! Please enter again.\n")
+                         
+        else:
+            break
+
+    print("Successfully Entered Your Marks ")
 
     student_data = [E_mail, password, name, roll_no, eng, math, isl, urdu]
     stud.append(student_data)
@@ -50,10 +61,10 @@ def show_marksheet(i):
 
     total = i[4] + i[5] + i[6] + i[7]
     percent = total / 4
-    print(f"Total Marks: {total}/400")
+    print(f"Total Marks: {total}/375")
     print(f"Percentage : {percent:.2f}%")
 
-    # Grade Calculation
+    
     if percent >= 80:
         grade = "A+"
     elif percent >= 70:
@@ -65,7 +76,7 @@ def show_marksheet(i):
     else:
         grade = "Fail"
 
-    # Result Message
+   
     if grade == "Fail":
         result = "Fail - Try Again!"
     else:
